@@ -1,0 +1,62 @@
+/*global*/
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'montserrat';
+}
+img{
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+/*utiltties*/
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8rem;
+}
+/*header*/
+.site-init{
+    background-color:aquamarine;
+    height: 15rem;
+}
+
+.site-footer{
+    background-color: black;
+    height: 18rem;
+}
+/*Main*/
+
+/*Welcome*/
+.welcome-section{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.welcome-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #faedcd;
+    height: 30rem;
+}
+.welcome-img img{
+    width: 20rem;
+    border-radius: 50%;
+}
+/*Services*/
+
+/*Footer*/
+.site-footer{
+    background-color: black;
+    height: 10rem;
+    color: white;
+}
+/*
+#CCD5AE
+#CCD5AE
+#D4A373
+*/
