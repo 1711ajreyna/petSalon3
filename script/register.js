@@ -33,7 +33,7 @@ let salon={
 }
 //display registered pets count:
 function displayRegisteredPetsCount(){
-    document.getElementById("petCount").innerHTML=(`
+    document.getElementById("petCount").innerHTML=(`Number of pets registered:
     ${salon.pets.length}
     `);
 }
@@ -45,8 +45,8 @@ console.log(salon.pets.length);
 
 //display pet names
 function displayPetNames(){
-    document.getElementById("petNames").innerHTML=(`
-    ${salon.pets[0].name} ${salon.pets[1].name} ${salon.pets[2].name}
+    document.getElementById("petNames").innerHTML=(`Pet names:
+    ${salon.pets[0].name}, ${salon.pets[1].name}, and ${salon.pets[2].name}
     `);
 }
 displayPetNames();
