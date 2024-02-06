@@ -21,7 +21,7 @@ a{
 }
 /*header*/
 .site-init{
-    background-color:aquamarine;
+    background-color:rgb(144, 199, 248);
     height: 15rem;
 }
 
@@ -41,7 +41,7 @@ a{
     justify-content: center;
     align-items: center;
     background-color: #faedcd;
-    height: 30rem;
+    height: 50rem;
 }
 .welcome-img img{
     width: 20rem;

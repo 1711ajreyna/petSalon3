@@ -6,51 +6,25 @@ let salon={
         number:"86",
         zip:"2435"
     },
-    pets:[
-        {
-            name:"Scooby",
-            age:60,
-            gender: "Male",
-            service: "vaccination",
-            breed: "mutt"
-        },
-        {
-            name:"Scrappy",
-            age:12,
-            gender: "male",
-            service: "grooming",
-            breed: "mutt"
-        },
-        {
-            name:"Tweety",
-            age:15,
-            gender: "Male",
-            service: "trimming",
-            breed: "mutt"
-        }
-    ] //pets array
+    pets:[] 
     
 }
-//display registered pets count:
-function displayRegisteredPetsCount(){
-    document.getElementById("petCount").innerHTML=(`Number of pets registered:
-    ${salon.pets.length}
-    `);
+
+function Pet(n,a,g){
+    this.name=n;
+    this.age=a;
+    this.gender=g;
 }
-displayRegisteredPetsCount();
-console.log(salon.pets[0].name);
-console.log(salon.pets[1].name);
-console.log(salon.pets[2].name);
-console.log(salon.pets.length);
 
 //display pet names
+
 function displayPetNames(){
-    document.getElementById("petNames").innerHTML=(`Pet names:
-    ${salon.pets[0].name}, ${salon.pets[1].name}, and ${salon.pets[2].name}
-    `);
+    document.getElementById('pets').innerHTML="";
+    for(i=0;i<salon.pets.length;i++){
+        document.getElementById('pets').innerHTML+=`<p>${salon.pets[i].name}</p>`;
+    }
+    document.getElementById('totalPets').innerHTML=`total=${salon.pets.length}`
 }
-displayPetNames();
-//use a for loop to travel the array
 
 function displayFooterInfo(){
     document.getElementById("info").innerHTML=(`
@@ -58,4 +32,31 @@ function displayFooterInfo(){
     ${salon.address.zip}`
     );
 }
-displayFooterInfo();
+let inputName=document.HTML
+function register(){
+    //1) getting the values
+
+    //2) create the newPet using the constructor
+    let newPet = new Pet(inputName.value,inputAge.value,inputGender.value);
+    console.log(newPet);
+    //3) push newPet into the array
+    salon.pets.push(newPet);
+    //4) call the display function
+    displayPetNames();
+    //5) clear the input
+    inputName.value="";
+    inputAge.value="";
+    inputGender.value="";
+}
+
+function init(){
+    //create a predefined obj
+    let pet1=new Pet("Scooby",60,"Male");
+    let pet2=new Pet("Scrappy",50,"Male");
+    let pet3=new Pet("Tweety",70,"Male");
+    salon.pets.push(pet1,pet2,pet3)
+    //executing fn
+    displayPetNames();
+    displayFooterInfo();
+}
+window.onload=init;

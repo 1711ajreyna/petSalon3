@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css/mystyle.css">
     <title>Document</title>
 </head>
@@ -22,8 +23,28 @@
     </header>
     <main class="">
         <h2>Register A new pet</h2>
-        <p id="petCount"></p>
-        <p id="petNames">Pet Names</p>
+        <form class="container">
+            <div class="mb-3">
+                <label>Name:</label>
+                <input class="form-control form-control-sm" type="text" id="txtName>">
+            </div>
+            <div class="mb-3">
+                <label>Age:</label>
+                <input class="form-control form-control-sm" type="number" id="txtAge">
+            </div>
+            <div class="mb-3">
+                <label>Gender:</label>
+                <input class="form-control form-control-sm" type="text" id="txtGender">
+            </div>
+        </form>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" type="button">
+            <button class="btn btn-primary me-md-2" type="button" onclick="register();">Register</button>
+        </div>
+        <h2>Register A new pet <span id="totalPets"></span></h2>
+        <div id="pets">
+            
+        </div>
     </main>
 
     <footer class="site-footer">
