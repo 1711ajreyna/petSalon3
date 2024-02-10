@@ -26,23 +26,57 @@
         <form class="container">
             <div class="mb-3">
                 <label>Name:</label>
-                <input class="form-control form-control-sm" type="text" id="txtName>">
+                <input class="form-control form-control-sm" 
+                type="text" 
+                id="txtName">
             </div>
             <div class="mb-3">
                 <label>Age:</label>
-                <input class="form-control form-control-sm" type="number" id="txtAge">
+                <input class="form-control form-control-sm" 
+                type="number" 
+                id="txtAge">
             </div>
             <div class="mb-3">
                 <label>Gender:</label>
-                <input class="form-control form-control-sm" type="text" id="txtGender">
+                <input class="form-control form-control-sm" 
+                type="text" 
+                id="txtGender">
+            </div>
+            <div class="mb-3">
+                <label>Breed:</label>
+                <input class="form-control form-control-sm" 
+                type="text" 
+                id="txtBreed">
+            </div>
+            <div class="mb-3">
+                <label>Service:</label>
+                <input class="form-control form-control-sm" 
+                type="text" 
+                id="txtService">
+            </div>
+            <div class="mb-3">
+                <label>Type:</label>
+                <select name="petType" 
+                id="txtType">
+                    <option value="10lbs or less">10lbs or less</option>
+                    <option value="10lbs or more">10lbs or more</option>
+                    <option value="more than 50lbs">more than 50lbs</option>
+                </select>
+                <!--<input class="form-control form-control-sm" type="text" id="txtType">-->
             </div>
         </form>
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end" type="button">
-            <button class="btn btn-primary me-md-2" type="button" onclick="register();">Register</button>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" 
+        type="button">
+            <button class="btn btn-primary me-md-2" 
+            type="button" 
+            onclick="register();">
+            Register
+            </button>
         </div>
-        <h2>Register A new pet <span id="totalPets"></span></h2>
-        <div id="pets">
+        <h2>Registered pets <span id="totalPets"></span></h2>
+        <div class="container" 
+        id="pets">
             
         </div>
     </main>
@@ -51,6 +85,7 @@
         <p id="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, optio.</p>
     </footer>
     
+    <script src="./script/display.js"></script>
     <script src="./script/register.js"></script>
 </body>
 </html>

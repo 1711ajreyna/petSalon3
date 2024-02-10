@@ -60,3 +60,15 @@ a{
 #CCD5AE
 #D4A373
 */
+/*cards*/
+#pets{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+.petCard{
+    background-color:#dedede;
+    border-radius: 5px;
+    padding: 1rem;
+}

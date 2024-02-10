@@ -10,53 +10,59 @@ let salon={
     
 }
 
-function Pet(n,a,g){
+function Pet(n,a,g,b,s,t){
     this.name=n;
     this.age=a;
     this.gender=g;
+    this.breed=b;
+    this.service=s;
+    this.type=t;
 }
 
-//display pet names
-
-function displayPetNames(){
-    document.getElementById('pets').innerHTML="";
-    for(i=0;i<salon.pets.length;i++){
-        document.getElementById('pets').innerHTML+=`<p>${salon.pets[i].name}</p>`;
-    }
-    document.getElementById('totalPets').innerHTML=`total=${salon.pets.length}`
+function getE(id){
+    return document.getElementById(id);
 }
 
-function displayFooterInfo(){
-    document.getElementById("info").innerHTML=(`
-    <p> Welcome the ${salon.name} our phone number is ${salon.phone} and we are located in ${salon.address.street}${salon.address.number}
-    ${salon.address.zip}`
-    );
-}
-let inputName=document.HTML
+let inputName = getE("txtName");
+let inputAge = getE("txtAge");
+let inputGender = getE("txtGender");
+let inputBreed = getE("txtBreed");
+let inputService = getE("txtService");
+let inputType = getE("txtType");
+
 function register(){
     //1) getting the values
 
     //2) create the newPet using the constructor
-    let newPet = new Pet(inputName.value,inputAge.value,inputGender.value);
-    console.log(newPet);
+    let newPet = new Pet(
+        inputName.value,
+        inputAge.value,
+        inputGender.value,
+        inputBreed.value,
+        inputService.value,
+        inputType.value);
+
     //3) push newPet into the array
     salon.pets.push(newPet);
     //4) call the display function
-    displayPetNames();
+    displayPetCards();
     //5) clear the input
     inputName.value="";
     inputAge.value="";
     inputGender.value="";
+    inputBreed.value="";
+    inputService.value="";
+    inputType.value="";
 }
 
 function init(){
     //create a predefined obj
-    let pet1=new Pet("Scooby",60,"Male");
-    let pet2=new Pet("Scrappy",50,"Male");
-    let pet3=new Pet("Tweety",70,"Male");
+    let pet1=new Pet("Scooby",60,"Male","Dalmation","washing",">10lbs");
+    let pet2=new Pet("Scrappy",50,"Male","poodle","trimming","<10lbs");
+    let pet3=new Pet("Tweety",70,"Male","Horse","washing",">10lbs");
     salon.pets.push(pet1,pet2,pet3)
     //executing fn
-    displayPetNames();
+    displayPetCards();
     displayFooterInfo();
 }
-window.onload=init;
+window.onload=init; //wait to render the HTML
