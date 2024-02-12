@@ -10,13 +10,14 @@ let salon={
     
 }
 
-function Pet(n,a,g,b,s,t){
+function Pet(n,a,g,b,s,t,p){
     this.name=n;
     this.age=a;
     this.gender=g;
     this.breed=b;
     this.service=s;
     this.type=t;
+    this.payment=p;
 }
 
 function getE(id){
@@ -29,10 +30,55 @@ let inputGender = getE("txtGender");
 let inputBreed = getE("txtBreed");
 let inputService = getE("txtService");
 let inputType = getE("txtType");
+let inputPayment = getE("txtPayment");
 
+function isValid(aPet){
+    let validation=true;
+    //clear the styles
+    // you need a for loop for the query
+    //document.querySelectorAll('input');
+    getE("txtName").classList.remove("alert-error");
+    getE("txtAge").classList.remove("alert-error");
+    getE("txtGender").classList.remove("alert-error");
+    getE("txtBreed").classList.remove("alert-error");
+    getE("txtService").classList.remove("alert-error");
+    getE("txtType").classList.remove("alert-error");
+    getE("txtPayment").classList.remove("alert-error");
+
+    if(aPet.name==""){
+        //the pet is not valid
+        validation=false;
+        getE("txtName").classList.add("alert-error");
+    }
+    if(aPet.age==""){
+        validation=false;
+        getE("txtAge").classList.add("alert-error");
+    }
+    if(aPet.gender==""){
+        validation=false;
+        getE("txtGender").classList.add("alert-error");
+    }
+    if(aPet.breed==""){
+        validation==false;
+        getE("txtBreed").classList.add("alert-error");
+    }
+    if(aPet.service==""){
+        validation=false;
+        getE("txtService").classList.remove("alert-error");
+    }
+    return validation;
+}
+
+function showNotifications(msg,type){
+    getE("notifications").classList.remove("hidden");
+    getE("notifications").innerHTML=`<p class="${type}">${msg}</p>`;
+
+    setTimeout(function(){
+        getE("notifications").classList.add("hidden");
+    },3000);
+}
 function register(){
     //1) getting the values
-
     //2) create the newPet using the constructor
     let newPet = new Pet(
         inputName.value,
@@ -40,8 +86,10 @@ function register(){
         inputGender.value,
         inputBreed.value,
         inputService.value,
-        inputType.value);
+        inputType.value,
+        inputPayment.value);
 
+    if(isValid(newPet)==true){
     //3) push newPet into the array
     salon.pets.push(newPet);
     //4) call the display function
@@ -53,13 +101,18 @@ function register(){
     inputBreed.value="";
     inputService.value="";
     inputType.value="";
+    inputPayment.value="";
+    showNotifications("successfully registered","alert-success");
+}else{
+    showNotifications("Please fill out all the required fields","alert-error");
+}
 }
 
 function init(){
     //create a predefined obj
-    let pet1=new Pet("Scooby",60,"Male","Dalmation","washing",">10lbs");
-    let pet2=new Pet("Scrappy",50,"Male","poodle","trimming","<10lbs");
-    let pet3=new Pet("Tweety",70,"Male","Horse","washing",">10lbs");
+    let pet1=new Pet("Scooby",60,"Male","Dalmation","washing",">10lbs","cash");
+    let pet2=new Pet("Scrappy",50,"Male","poodle","trimming","<10lbs", "credit card");
+    let pet3=new Pet("Tweety",70,"Male","Horse","washing",">10lbs","debit card");
     salon.pets.push(pet1,pet2,pet3)
     //executing fn
     displayPetCards();

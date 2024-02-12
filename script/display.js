@@ -32,9 +32,13 @@ function displayPetCards(){
             <p>Breed:${pet.breed}</p>
             <p>Service:${pet.service}</p>
             <p>Type:${pet.type}</p>
+            <p>Payment:${pet.payment}</p>
         </div>
         `;
-        console.log(card);
     }
     getE('pets').innerHTML=card;
+}
+
+function displayPetTable(){
+
 }
