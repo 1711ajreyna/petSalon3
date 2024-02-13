@@ -10,6 +10,7 @@ let salon={
     
 }
 
+let petID=0;
 function Pet(n,a,g,b,s,t,p){
     this.name=n;
     this.age=a;
@@ -18,6 +19,7 @@ function Pet(n,a,g,b,s,t,p){
     this.service=s;
     this.type=t;
     this.payment=p;
+    this.id=petID++;//internal id
 }
 
 function getE(id){
@@ -106,6 +108,20 @@ function register(){
 }else{
     showNotifications("Please fill out all the required fields","alert-error");
 }
+}
+
+function deletePet(petID){
+    let deleteIndex;//to get the index of the array (pos of the obj)
+    for(let i=0;i<salon.pets.length;i++){
+        let pet = salon.pets[i];
+        if(pet.id==petID){
+            deleteIndex=i;
+            break;
+        }
+    }
+    getE(petID).remove();//remove from HTML
+    salon.pets.splice(deleteIndex,1);//remove from pet array
+    //displayPetCards();
 }
 
 function init(){

@@ -25,7 +25,7 @@ function displayPetCards(){
         let pet=salon.pets[i];
         console.log(pet);
         card+=`
-        <div class="petCard">
+        <div id="${pet.id}" class="petCard">
             <p>Name:${pet.name}</p>
             <p>Age:${pet.age}</p>
             <p>Gender:${pet.gender}</p>
@@ -33,6 +33,7 @@ function displayPetCards(){
             <p>Service:${pet.service}</p>
             <p>Type:${pet.type}</p>
             <p>Payment:${pet.payment}</p>
+            <button onclick="deletePet(${pet.id})">Delete</button>
         </div>
         `;
     }
