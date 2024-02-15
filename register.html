@@ -57,24 +57,24 @@
                 type="text" 
                 id="txtService">
             </div>
+            <!--bootstrap selects for next 2 divs-->
             <div class="mb-3">
-                <label>Type:</label>
-                <select name="petType" 
-                id="txtType">
-                    <option value="10lbs or less">10lbs or less</option>
-                    <option value="10lbs or more">10lbs or more</option>
-                    <option value="more than 50lbs">more than 50lbs</option>
-                </select>
-                <!--<input class="form-control form-control-sm" type="text" id="txtType">-->
+                <select class="form-select" name="petType" arial-label="Floating label select example" id="txtType">
+                <option selected>Choose a weight range</option>
+                <option value="10lbs or less">10lbs or less</option>
+                <option value="10lbs or more">10lbs or more</option>
+                <option value="more than 50lbs">more than 50lbs</option>
+            </select>
+            <label for id="petType">Type:</label>
             </div>
-            <div class="mb-3">
-                <label>Payment type:</label>
-                <select name="payment" 
-                id="txtPayment">
-                    <option value="cash">cash</option>
-                    <option value="credit card">credit card</option>
-                    <option value="debit card">debit card</option>
-                </select>
+            <div class="form-floating">
+                <select class="form-select" name="payment" arial-label="Floating label select example" id="txtPayment">
+                <option selected>Choose payment type</option>
+                <option value="cash">cash</option>
+                <option value="credit card">credit card</option>
+                <option value="debit card">debit card</option>
+            </select>
+            <label for id="txtPayment">Payment type:</label>
             </div>
         </form>
 
