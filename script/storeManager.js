@@ -1,13 +1,13 @@
-function saveItem(item){
-    let itemsArray = readItems(); // getting LS data
+function saveItem(item,key){
+    let itemsArray = readItems(key); // getting LS(i.e local storage) data
     itemsArray.push(item); //add the new item to the array
     let val = JSON.stringify(itemsArray); //this is a string
-    localStorage.setItem("services",val); 
+    localStorage.setItem(key,val); 
 }
 
-function readItems(){
+function readItems(key){
     //getting items from LS
-    let data=localStorage.getItem("services");
+    let data=localStorage.getItem(key);
     if(!data){ //NOT data?
         return[]; // create the array
     }else{

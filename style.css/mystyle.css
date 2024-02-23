@@ -102,3 +102,7 @@ image {
     padding-top: 20%;
     float: left;
 }
+/*table*/
+.table{
+    padding:50px;
+}

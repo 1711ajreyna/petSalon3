@@ -21,11 +21,12 @@ function addService(){
     let newService = new Service(inputService,inputPrice);
     services.push(newService);
     saveItem(newService);//from the local storage
-    displayItems(services);
+    displayItems();//display the services on the HTML
 }
 
-function displayItems(items){
-    let htmlList=$("#services");
+function displayItems(){
+    let items = readItems(); //getting the items from the LS
+    let htmlList = $("#services");
     htmlList.html("");
     let li;
     for(let i=0; i<items.length; i++){

@@ -18,6 +18,7 @@
             <nav>
                 <a href="index.html">Home</a>
                 <a href="register.html">Register</a>
+                <a href="services.html">Services</a>
             </nav>
         </div>
     </header>
@@ -53,9 +54,10 @@
             </div>
             <div class="mb-3">
                 <label>Service:</label>
-                <input class="form-control form-control-sm" 
-                type="text" 
-                id="txtService">
+                <select class="form-select" name="txtService" araial-label="floating label select example" id="txtService">
+                <option value="washing">washing</option>
+                <option value="pet sitting">pet sitting</option>
+                </select>
             </div>
             <!--bootstrap selects for next 2 divs-->
             <div class="mb-3">
@@ -91,12 +93,31 @@
         id="pets">
             
         </div>
+        <br>
+        <div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Breed</th>
+                    <th>Service</th>
+                    <th>Type</th>
+                    <th>Payment</th>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
     </main>
 
     <footer class="site-footer">
         <p id="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, optio.</p>
     </footer>
     
+    <script src="./script/storeManager.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./script/display.js"></script>
     <script src="./script/register.js"></script>
 </body>

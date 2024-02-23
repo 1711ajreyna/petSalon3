@@ -31,7 +31,7 @@ let inputAge = getE("txtAge");
 let inputGender = getE("txtGender");
 let inputBreed = getE("txtBreed");
 let inputService = getE("txtService");
-let inputType = getE("txtType");
+let inputType = getE("petType");
 let inputPayment = getE("txtPayment");
 
 function isValid(aPet){
@@ -44,7 +44,7 @@ function isValid(aPet){
     getE("txtGender").classList.remove("alert-error");
     getE("txtBreed").classList.remove("alert-error");
     getE("txtService").classList.remove("alert-error");
-    getE("txtType").classList.remove("alert-error");
+    getE("petType").classList.remove("alert-error");
     getE("txtPayment").classList.remove("alert-error");
 
     if(aPet.name==""){
@@ -72,12 +72,14 @@ function isValid(aPet){
 }
 
 function showNotifications(msg,type){
-    getE("notifications").classList.remove("hidden");
+    // getE("notifications").classList.remove("hidden");
+    $("#notifications").slideDown(1000);
     getE("notifications").innerHTML=`<p class="${type}">${msg}</p>`;
+    $("#notifications").slideUp(2000);
 
-    setTimeout(function(){
-        getE("notifications").classList.add("hidden");
-    },3000);
+    // setTimeout(function(){
+    //   getE("notifications").classList.add("hidden");
+    // },3000);
 }
 function register(){
     //1) getting the values
@@ -95,6 +97,7 @@ function register(){
     //3) push newPet into the array
     salon.pets.push(newPet);
     //4) call the display function
+    saveItem(newPet,"petsDB");
     displayPetCards();
     //5) clear the input
     inputName.value="";
@@ -124,6 +127,20 @@ function deletePet(petID){
     //displayPetCards();
 }
 
+function getServices(){
+    let serviceList = readItems("services");
+    for(let i=0;i<serviceList.length;i++){
+        let service = serviceList[i];
+        $("#txtService").append(
+            `<option value="${service.description}">${service.description}</option>`
+        );
+    }
+}
+
+function init(){
+    //create predefined obj
+}
+
 function init(){
     //create a predefined obj
     let pet1=new Pet("Scooby",60,"Male","Dalmation","washing",">10lbs","cash");
@@ -131,6 +148,7 @@ function init(){
     let pet3=new Pet("Tweety",70,"Male","Horse","washing",">10lbs","debit card");
     salon.pets.push(pet1,pet2,pet3)
     //executing fn
+    getServices();
     displayPetCards();
     displayFooterInfo();
 }
